@@ -55,7 +55,7 @@ function App() {
 
   return (
     <div className="App">
-      <h2>MinhNghia's Facial Recognition System</h2>
+      <h2>LeMinhNghia's Facial Recognition System</h2>
       <form onSubmit={sendImage}>
         <input type='file' name='image' onChange={e => setImage(e.target.files[0])}/>
         <button type='submit'>Authentication</button>
