@@ -1,11 +1,12 @@
 version: 0.2
 
-# env:
-#   secrets-manager:
-#     NODE_ENV: $AWS_SECRET_ARN:NODE_ENV
-#     SONAR_URL: $AWS_SECRET_ARN:SONAR_URL
-#     SONAR_TOKEN: $AWS_SECRET_ARN:SONAR_TOKEN
-#     SONAR_PROJECT_KEY: $AWS_SECRET_ARN:SONAR_PROJECT_API_KEY_PURAVIDA
+env:
+  secrets-manager:
+    SONAR_URL: $AWS_SECRET_ARN:SONAR_URL
+    SONAR_TOKEN: $AWS_SECRET_ARN:SONAR_TOKEN
+    SONAR_PROJECT_KEY: $AWS_SECRET_ARN:SONAR_PROJECT_KEY
+    USERNAME_DOCKER: $AWS_SECRET_ARN:USERNAME_DOCKER
+    PASSWORD_DOCKER: $AWS_SECRET_ARN:PASSWORD_DOCKER
 phases:
   # install:
   #   # runtime-versions:
@@ -20,13 +21,13 @@ phases:
   build:
     commands:
       # - cd $CODEBUILD_SRC_DIR
-      - docker login --username nghialmgcd201527 --password Minhnghia@123
+      - docker login --username ${USERNAME_DOCKER} --password ${PASSWORD_DOCKER}
       - |
         docker run \
         --rm \
-        -e SONAR_HOST_URL="http://ec2-18-136-210-171.ap-southeast-1.compute.amazonaws.com:9000" \
-        -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=final-project -Dsonar.sources=." \
-        -e SONAR_TOKEN=sqp_10dc69d7130ad2db06895a64563bd45c395c2fa8 \
+        -e SONAR_HOST_URL="${SONAR_URL}" \
+        -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.sources=." \
+        -e SONAR_TOKEN=${SONAR_TOKEN} \
         -v "$(pwd):/usr/src" \
         sonarsource/sonar-scanner-cli
       - echo "build stage completed"
