@@ -32,6 +32,7 @@ phases:
       - echo "build stage completed"
       - echo "Test again"
       - echo "Test"
+      - echo "Test"
 
 # version: 0.2
 
