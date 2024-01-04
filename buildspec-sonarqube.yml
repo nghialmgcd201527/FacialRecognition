@@ -20,7 +20,7 @@ phases:
   build:
     commands:
       # - cd $CODEBUILD_SRC_DIR
-      - docker login --username nghialmgcd201527
+      # - docker login --username nghialmgcd201527
       - |
         docker run \
         --rm \
