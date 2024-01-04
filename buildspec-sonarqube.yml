@@ -29,7 +29,7 @@ phases:
         -v "$(pwd):/usr/src" \
         sonarsource/sonar-scanner-cli
       - echo "build stage completed"
-      - echo "Test"
+      - echo "Test again"
 
 # version: 0.2
 
