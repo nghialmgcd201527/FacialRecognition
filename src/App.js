@@ -7,6 +7,13 @@ function App() {
   const [uploadResultMessage, setUploadResultMessage] = useState('Please upload an image to authentication.')
   const [visitorName, setVisitorName] = useState('placeholder.png')
   const [isAuth, setAuth] = useState(false)
+  const [registerImage, setRegisterImage] = useState('');
+
+
+  function sendRegisterImage(e) {
+    console.log(e.target.files);
+    setRegisterImage(e.target.files[0]);
+  }
 
   function sendImage(e) {
     e.preventDefault();
@@ -56,11 +63,17 @@ function App() {
   return (
     <div className="App">
       <h2>LeMinhNghia's Facial Recognition System</h2>
+      <div>
+      <h3>Upload New Register Image</h3>
+        <form>
+          <input type='file' name='registerImage' onChange={sendRegisterImage}/>
+        </form>
+      </div>
+      <div className={isAuth ? 'success' : 'failure'}>{uploadResultMessage}</div>
       <form onSubmit={sendImage}>
         <input type='file' name='image' onChange={e => setImage(e.target.files[0])}/>
         <button type='submit'>Authentication</button>
       </form>
-      <div className={isAuth ? 'success' : 'failure'}>{uploadResultMessage}</div>
       <img src={ require(`./visitors/${visitorName}`) } alt='Visitor' height={250} width={250}/>
     </div>
   );
