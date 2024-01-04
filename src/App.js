@@ -59,7 +59,7 @@ function App() {
       return data;
     }).catch(error => console.error(error))
   }
-  
+  khsakjhdjkhkj
   return (
     <div className="App">
       <h2>LeMinhNghia's Facial Recognition System</h2>
