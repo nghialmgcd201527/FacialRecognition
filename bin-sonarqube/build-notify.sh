@@ -1,4 +1,4 @@
-LOG_GROUP="codebuild-final"
+LOG_GROUP="codebuildsonar"
 logPath=$(echo $CODEBUILD_LOG_PATH | sed -e "s/\//\$252f/g")
 logPath="https://${AWS_REGION}.console.aws.amazon.com/cloudwatch/home?region=${AWS_REGION}#logsV2:log-groups/log-group/${LOG_GROUP}/log-events/${logPath}"
 
