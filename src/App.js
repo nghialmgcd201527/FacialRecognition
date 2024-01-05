@@ -62,7 +62,7 @@ function App() {
 
   return (
     <div className="App">
-      <h2>LeMinhNghia's Facial Recognition System</h2>
+      <h2>MinhNghia's Facial Recognition System</h2>
       <div>
       <h3>Upload New Register Image</h3>
         <form>
