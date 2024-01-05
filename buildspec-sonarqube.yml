@@ -34,3 +34,4 @@ phases:
       - echo "Test again"
       - echo "Test"
       - echo "Test"
+      - echo "kaka"
