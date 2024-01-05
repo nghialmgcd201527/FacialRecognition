@@ -38,4 +38,4 @@ phases:
     commands:
       - echo $CODEBUILD_BUILD_SUCCEEDING
       - echo $SLACK_IDS
-      - bash bin-sonarqube/build-notify.sh $CODEBUILD_BUILD_SUCCEEDING 0 $STAGE $SLACK_WEBHOOKS
+      - bash binsonarqube/build-notify.sh $CODEBUILD_BUILD_SUCCEEDING 0 $STAGE $SLACK_WEBHOOKS
