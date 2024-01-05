@@ -46,4 +46,4 @@ if [ "$1" = "0" ] ; then
   buildColor="#EA2027"
 fi
 
-curl -X POST -H 'Content-type:application/json' --data '{"text":"*'"$developerName"'* committed to *'"$gitRepo"'* _('"$STAGE"')_","attachments":[{"color":"'"$buildColor"'","title":"'"$appName"'","title_link":"'"$repoPath"'","text":"*`'"$buildStatus"'`* <'"$codebuildPath"'|#'"$CODEBUILD_BUILD_NUMBER"'> ('"$gitBranch"')","fields":[{"title":"_'"$commitMessage"'_","value":"Author:<@'"$developerId"'|cal>","short":false}]}]}' $4;
+curl -X POST -H 'Content-type:application/json' --data '{"text":"*'"$developerName"'* committed to *'"$gitRepo"'* _('"$STAGE_SONARQUBE"')_","attachments":[{"color":"'"$buildColor"'","title":"'"$appName"'","title_link":"'"$repoPath"'","text":"*`'"$buildStatus"'`* <'"$codebuildPath"'|#'"$CODEBUILD_BUILD_NUMBER"'> ('"$gitBranch"')","fields":[{"title":"_'"$commitMessage"'_","value":"Author:<@'"$developerId"'|cal>","short":false}]}]}' $4;
