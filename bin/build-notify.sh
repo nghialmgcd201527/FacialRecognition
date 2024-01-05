@@ -5,7 +5,7 @@
 
 # SLACK_IDS="{\"Quy Ho\":\"DPN6RKY03\",\"ha_le\":\"U02RZV4LCQ3\"}"
 
-LOG_GROUP="log-group"
+LOG_GROUP="codebuild-final"
 logPath=$(echo $CODEBUILD_LOG_PATH | sed -e "s/\//\$252f/g")
 logPath="https://${AWS_REGION}.console.aws.amazon.com/cloudwatch/home?region=${AWS_REGION}#logsV2:log-groups/log-group/${LOG_GROUP}/log-events/${logPath}"
 
@@ -18,7 +18,7 @@ gitRepo=`basename $(git rev-parse --show-toplevel)`
 gitBranch=`git name-rev HEAD | sed -e "s/HEAD //"`
 gitUrl=`git remote get-url origin`
 
-repoPath="https://${AWS_REGION}.console.aws.amazon.com/codesuite/codecommit/repositories/${gitRepo}/browse?region=${AWS_REGION}"
+repoPath="https://github.com/nghialmgcd201527/FacialRecognition"
 
 appName=$(echo $gitRepo | awk 'BEGIN{FS=OFS="-"}{for(i=1;i<=NF;i++){$i=toupper(substr($i,1,1))substr($i,2)}}1' | tr '-' ' ')
 

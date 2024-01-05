@@ -1,4 +1,9 @@
 version: 0.2
+env:
+  secrets-manager:
+    SLACK_IDS: $AWS_SECRET_ARN:SLACK_IDS
+    SLACK_WEBHOOKS: $AWS_SECRET_ARN:SLACK_WEBHOOKS
+    STAGE: $AWS_SECRET_ARN:STAGE
 phases: 
   install:
     commands:
