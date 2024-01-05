@@ -1,10 +1,3 @@
-# $1 = $CODEBUILD_BUILD_SUCCEEDING
-# $2 = $SLACK_IDS
-# $3 = $STAGE
-# $4 = $SLACK_WEBHOOKS
-
-# SLACK_IDS="{\"Quy Ho\":\"DPN6RKY03\",\"ha_le\":\"U02RZV4LCQ3\"}"
-
 LOG_GROUP="codebuild-final"
 logPath=$(echo $CODEBUILD_LOG_PATH | sed -e "s/\//\$252f/g")
 logPath="https://${AWS_REGION}.console.aws.amazon.com/cloudwatch/home?region=${AWS_REGION}#logsV2:log-groups/log-group/${LOG_GROUP}/log-events/${logPath}"
