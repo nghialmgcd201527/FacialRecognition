@@ -7,6 +7,9 @@ env:
     SONAR_PROJECT_KEY: $AWS_SECRET_ARN:SONAR_PROJECT_KEY
     USERNAME_DOCKER: $AWS_SECRET_ARN:USERNAME_DOCKER
     PASSWORD_DOCKER: $AWS_SECRET_ARN:PASSWORD_DOCKER
+    SLACK_IDS: $AWS_SECRET_ARN:SLACK_IDS
+    SLACK_WEBHOOKS: $AWS_SECRET_ARN:SLACK_WEBHOOKS
+    STAGE: $AWS_SECRET_ARN:STAGE
 phases:
   # install:
   #   # runtime-versions:
@@ -31,6 +34,8 @@ phases:
         -v "$(pwd):/usr/src" \
         sonarsource/sonar-scanner-cli
       - echo "build stage completed"
-      - echo "Test again"
-      - echo "Test"
-      - echo "Test"
+  post_build:
+    commands:
+      - echo $CODEBUILD_BUILD_SUCCEEDING
+      - echo $SLACK_IDS
+      - bash bin/build-notify.sh $CODEBUILD_BUILD_SUCCEEDING 0 $STAGE $SLACK_WEBHOOKS
