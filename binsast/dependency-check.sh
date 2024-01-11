@@ -17,10 +17,10 @@ docker run --rm \
     --format HTML \
     --nodeAuditSkipDevDependencies \
     --nodePackageSkipDevDependencies \
-    --cveValidForHours 24 \
     --failOnCVSS 7 \
     --junitFailOnCVSS 3 \
     --project "%DC_PROJECT%" \
     --out /report
+    # --cveValidForHours 24 \
     # Use suppression like this: (where /src == $pwd)
     # --suppression "/src/security/dependency-check-suppression.xml"
