@@ -1,0 +1,48 @@
+version: 0.2
+
+env:
+  # parameter-store:
+  #   TOOLING_ACCOUNT_ID: /op/$STAGE/AWS_ACCOUNT_ID
+  #   AWS_ACCOUNT_ID: /op/$STAGE/AWS_ACCOUNT_ID
+  secrets-manager:
+    TOKEN_SLACK: $AWS_SECRET_ARN:TOKEN_SLACK
+    API_SLACK: $AWS_SECRET_ARN:API_SLACK
+    CHANNEL_SLACK: $AWS_SECRET_ARN:CHANNEL_SLACK
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - npm install -g yarn
+      - sudo apt-get install zip -y
+      # Install njsscan
+      - pip3 install njsscan --quiet
+      - echo "Installed njsscan"
+  build:
+    commands:
+      - yarn install --production=false
+      - npx prisma generate
+      - yarn build
+      #Run nodejs-scan
+      - mkdir -p report
+      - njsscan dist/src --html --output report/njsscan-report.html
+      - export PATH_TO_REPORT=report/njsscan-report.html
+      - export TYPE_REPORT=njsscan
+      - echo "Nodejs-scan completed"
+      #Run OWASP Dependency Check
+      - bash bin/dependency-check.sh
+      - echo "OWASP Dependency Check completed"
+      # Run linter
+      - yarn lint
+  post_build:
+    commands:
+      - bash binsast/build-notify.sh $API_SLACK $TOKEN_SLACK $CHANNEL_SLACK $REPO $PATH_TO_REPORT $TYPE_REPORT
+
+artifacts:
+  files:
+    - odc-reports/dependency-check-report.html
+    - odc-reports/dependency-check-junit.xml
+cache:
+  paths:
+    - 'node_modules/**/*'
+
