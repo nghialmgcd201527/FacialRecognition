@@ -28,9 +28,9 @@ phases:
       - njsscan dist/src --html --output report/njsscan-report.html
       - export PATH_TO_REPORT=report/njsscan-report.html
       - export TYPE_REPORT=njsscan
-      - echo "Nodejs-scan completed"
+      - echo "Reactjs-scan completed"
       #Run OWASP Dependency Check
-      - bash bin/dependency-check.sh
+      - bash binsast/dependency-check.sh
       - echo "OWASP Dependency Check completed"
       # Run linter
       - yarn lint
