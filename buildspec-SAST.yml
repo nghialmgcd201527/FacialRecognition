@@ -29,6 +29,7 @@ phases:
       - export PATH_TO_REPORT=report/njsscan-report.html
       - export TYPE_REPORT=njsscan
       - echo "Reactjs-scan completed"
+      - cat /report/dependency-check-report.html
       #Run OWASP Dependency Check
       - bash binsast/dependency-check.sh
       - echo "OWASP Dependency Check completed"
