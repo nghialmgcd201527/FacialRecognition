@@ -25,7 +25,7 @@ phases:
       - yarn build
       #Run nodejs-scan
       - mkdir -p report
-      - njsscan dist/src --html --output report/njsscan-report.html
+      - njsscan build --html --output report/njsscan-report.html
       - export PATH_TO_REPORT=report/njsscan-report.html
       - export TYPE_REPORT=njsscan
       - echo "Reactjs-scan completed"
