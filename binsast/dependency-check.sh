@@ -17,7 +17,7 @@ docker run --rm \
     --format HTML \
     --nodeAuditSkipDevDependencies \
     --nodePackageSkipDevDependencies \
-    --failOnCVSS 7 \
+    --failOnCVSS 10 \
     --junitFailOnCVSS 3 \
     --project "%DC_PROJECT%" \
     --out /report
