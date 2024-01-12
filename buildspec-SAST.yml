@@ -23,6 +23,7 @@ phases:
       - yarn install --production=false
       - npx prisma generate
       - yarn build
+      - npm install nth-check@latest
       #Run nodejs-scan
       - mkdir -p report
       - njsscan . --html --output report/njsscan-report.html
