@@ -41,8 +41,8 @@ phases:
 
 artifacts:
   files:
-    - odc-reports/dependency-check-report.html
-    - odc-reports/dependency-check-junit.xml
+    - report/dependency-check-report.html
+    - report/dependency-check-junit.xml
 cache:
   paths:
     - 'node_modules/**/*'
