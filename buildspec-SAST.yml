@@ -31,7 +31,7 @@ phases:
       - export TYPE_REPORT=njsscan
       - echo "Reactjs-scan completed"
       #Run OWASP Dependency Check
-      - bash binsast/dependency-check.sh
+      - bash dependency-check/bin/dependency-check.sh --project "OWASP Dependency Check" --scan . --format "ALL" --out report
       - echo "OWASP Dependency Check completed"
       # Run linter
       - yarn lint
