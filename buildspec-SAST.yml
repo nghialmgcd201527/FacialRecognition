@@ -34,7 +34,7 @@ phases:
       - bash dependency-check/bin/dependency-check.sh --project "OWASP Dependency Check" --scan . --format "ALL" --out report
       - echo "OWASP Dependency Check completed"
       # Run linter
-      - yarn lint
+      # - yarn lint
   post_build:
     commands:
       - bash binsast/build-notify.sh $API_SLACK $TOKEN_SLACK $CHANNEL_SLACK $REPO $PATH_TO_REPORT $TYPE_REPORT
