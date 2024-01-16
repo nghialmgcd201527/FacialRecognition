@@ -30,7 +30,7 @@ phases:
         docker run \
         --rm \
         -e SONAR_HOST_URL="${SONAR_URL}" \
-        -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.sources=." \
+        -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.sources=. -Dsonar.exclusions=report/** -Dsonar.dependencyCheck.htmlReportPath=report/dependency-check-report.html" \
         -e SONAR_TOKEN=${SONAR_TOKEN} \
         -v "$(pwd):/usr/src" \
         sonarsource/sonar-scanner-cli

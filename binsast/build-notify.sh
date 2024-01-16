@@ -5,8 +5,6 @@
 # $5 = $PATH_TO_REPORT
 # $6 = $TYPE_REPORT
 
-# SLACK_IDS="{\"Quy Ho\":\"DPN6RKY03\",\"ha_le\":\"U02RZV4LCQ3\"}"
-
 current_date_time="`date +%Y%m%d%H%M`";
 if [ -e "$5" ]
 then
