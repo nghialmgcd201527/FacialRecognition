@@ -42,7 +42,13 @@ phases:
 artifacts:
   files:
     - report/dependency-check-report.html
-    - report/dependency-check-junit.xml
+    - report/dependency-check-report.xml 
+    - report/dependency-check-report.json
+    - report/dependency-check-report.csv
+    - report/dependency-check-report.sarif
+    - report/dependency-check-jenkins.html
+    - report/dependency-check-junit.xml 
+    - report/dependency-check-gitlab.json
 reports:
   sast-report:
     files:
