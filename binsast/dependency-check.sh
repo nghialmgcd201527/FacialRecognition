@@ -40,6 +40,7 @@ docker pull owasp/dependency-check:$DC_VERSION
 docker run --rm \
     -e user=$USER \
     -u $(id -u ${USER}):$(id -g ${USER}) \
+    --nvdApiKey 66a986ca-b5fd-4aab-bb0b-c9e5f10edf7c \
     --volume $(pwd):/src:z \
     --volume "$DATA_DIRECTORY":/usr/share/dependency-check/data:z \
     --volume $(pwd)/odc-reports:/report:z \
