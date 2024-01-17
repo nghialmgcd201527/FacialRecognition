@@ -32,7 +32,7 @@ phases:
       - export TYPE_REPORT=njsscan
       - echo "Reactjs-scan completed"
       #Run OWASP Dependency Check
-      - bash dependency-check/bin/dependency-check.sh --project "OWASP Dependency Check" --scan $(pwd)/src --format "ALL" --nvdApiKey "66a986ca-b5fd-4aab-bb0b-c9e5f10edf7c" --out $(pwd)/report
+      - bash dependency-check/bin/dependency-check.sh --project "OWASP Dependency Check" --scan . --format HTML --nvdApiKey "66a986ca-b5fd-4aab-bb0b-c9e5f10edf7c" --out /report
       - echo "OWASP Dependency Check completed"
       # Run linter
       # - yarn lint
@@ -42,9 +42,8 @@ phases:
 
 artifacts:
   files:
-    - $(pwd)/report/dependency-check-report.html
-    - $(pwd)/report/dependency-check-junit.xml
+    - report/dependency-check-report.html
 cache:
   paths:
-    - '$(pwd)/node_modules/**/*'
+    - 'node_modules/**/*'
 
