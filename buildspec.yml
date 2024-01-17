@@ -8,16 +8,16 @@ phases:
   install:
     commands:
       - echo "Installing dependencies..."
-      - npm install
-      - printenv
-  build:
-    commands:
-      - echo "Building the React project..."
-      - npm run build
-  post_build:
-    commands:
-      - echo "Uploading files to S3 bucket..."
-      - aws s3 sync build/ s3://final-project-facial-recognition-app --delete
-      - echo $CODEBUILD_BUILD_SUCCEEDING
-      - echo $SLACK_IDS
-      - bash bin/build-notify.sh $CODEBUILD_BUILD_SUCCEEDING 0 $STAGE $SLACK_WEBHOOKS
+  #     - npm install
+  #     - printenv
+  # build:
+  #   commands:
+  #     - echo "Building the React project..."
+  #     - npm run build
+  # post_build:
+  #   commands:
+  #     - echo "Uploading files to S3 bucket..."
+  #     - aws s3 sync build/ s3://final-project-facial-recognition-app --delete
+  #     - echo $CODEBUILD_BUILD_SUCCEEDING
+  #     - echo $SLACK_IDS
+  #     - bash bin/build-notify.sh $CODEBUILD_BUILD_SUCCEEDING 0 $STAGE $SLACK_WEBHOOKS

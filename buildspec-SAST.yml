@@ -32,7 +32,7 @@ phases:
       - echo "Reactjs-scan completed"
       #Run OWASP Dependency Check
       # - bash dependency-check/bin/dependency-check.sh --project "OWASP Dependency Check" --scan . --format "ALL" --out report
-      - binsast/dependency-check.sh
+      - bash binsast/dependency-check.sh
       - echo "OWASP Dependency Check completed"
       # Run linter
       # - yarn lint
