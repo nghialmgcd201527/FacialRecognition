@@ -13,14 +13,15 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - npm install -g yarn
+      # - npm install -g yarn
       - sudo apt-get install zip -y
       # Install njsscan
       - pip3 install njsscan --quiet
       - echo "Installed njsscan"
   build:
     commands:
-      - yarn install --production=false
+      - npm install --package-lock
+      # - yarn install --production=false
       # - npx prisma generate
       # - yarn build
       # - npm install nth-check@latest
@@ -41,9 +42,9 @@ phases:
 
 artifacts:
   files:
-    - report/dependency-check-report.html
-    - report/dependency-check-junit.xml
+    - $(pwd)/report/dependency-check-report.html
+    - $(pwd)/report/dependency-check-junit.xml
 cache:
   paths:
-    - 'node_modules/**/*'
+    - '$(pwd)/node_modules/**/*'
 
