@@ -12,16 +12,16 @@ env:
     STAGE_SONARQUBE: $AWS_SECRET_ARN:STAGE_SONARQUBE
     STAGE: $AWS_SECRET_ARN:STAGE
 phases:
-  # install:
-  #   # runtime-versions:
-  #   #   nodejs: 18
-  #   commands:
-  #     # Copy odc reports
-  #     - echo $CODEBUILD_SRC_DIR_sastout_api_service
-  #     - |
-  #       if ! [ -z ${CODEBUILD_SRC_DIR_sastout_api_service+x} ] ; then
-  #         cp -R $CODEBUILD_SRC_DIR_sastout_api_service/odc-reports $CODEBUILD_SRC_DIR
-  #       fi
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      # Copy odc reports
+      - echo $CODEBUILD_SRC_DIR_sastout
+      - |
+        if ! [ -z ${CODEBUILD_SRC_DIR_sastout+x} ] ; then
+          cp -R $CODEBUILD_SRC_DIR_sastout/report $CODEBUILD_SRC_DIR
+        fi
   build:
     commands:
       # - cd $CODEBUILD_SRC_DIR
