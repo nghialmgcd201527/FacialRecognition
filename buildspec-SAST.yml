@@ -18,13 +18,13 @@ phases:
       # Install njsscan
       - pip3 install njsscan --quiet
       - echo "Installed njsscan"
+      - npm install --package-lock
   build:
     commands:
-      - npm install --package-lock
       # - yarn install --production=false
       # - npx prisma generate
       # - yarn build
-      # - npm install nth-check@latest
+      - npm install nth-check@latest
       #Run nodejs-scan
       - mkdir -p report
       - njsscan . --html --output report/njsscan-report.html
